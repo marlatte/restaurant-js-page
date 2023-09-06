@@ -2,34 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Marlatte Restaurant Page</title>
-		<link
-			rel="stylesheet"
-			href="style.css"
-		/>
+		<link rel="stylesheet" href="style.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		/>
-		<script
-			src="main.js"
-			defer
-		></script>
+		<script src="main.js" defer></script>
 	</head>
 
 	<body>
-		<header>
+		<div class="sidebar">
+			<button type="button" id="close-btn" onclick="closeNav()">×</button>
 			<nav>
-				<ul>
-					<li><a href="#">home</a></li>
-					<li><a href="#">menu</a></li>
-					<li><a href="#">events</a></li>
-				</ul>
+				<button type="button" id="home-btn">home</button>
+				<button type="button" id="menu-btn">menu</button>
+				<button type="button" id="events-btn">events</button>
 			</nav>
+		</div>
+		<header>
+			<button type="button" id="open-btn" onclick="openNav()">
+				☰ Open Nav
+			</button>
 		</header>
 		<main id="content">
 			<section class="home">
@@ -61,14 +56,22 @@
 			</div>
 			<div class="author">
 				<p>Walker</p>
-				<a
-					href="https://github.com/marlatte"
-					target="_blank"
-				>
+				<a href="https://github.com/marlatte" target="_blank">
 					<i class="fa fa-github"></i>
 				</a>
 				<p>Marlatt</p>
 			</div>
 		</footer>
+		<script>
+			function closeNav() {
+				document.querySelector(".sidebar").style.width = "0px";
+				document.querySelector(".sidebar").style.padding = "20px 0px";
+			}
+
+			function openNav() {
+				document.querySelector(".sidebar").style.width = "300px";
+				document.querySelector(".sidebar").style.padding = "20px";
+			}
+		</script>
 	</body>
 </html>
