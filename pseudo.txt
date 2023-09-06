@@ -1,5 +1,22 @@
-User story:
-As a < type of user >, I want < some goal > so that < some reason >
+Recreating assetrestaurant.com
 
-Logical flow:
-A few sentences on general functionality and the steps necessary to do all those things.
+LOGICAL FLOW
+Mobile
+- Show the homepage, with collapsed nav sidebar
+- When open-sidebar button clicked, sidebar scrawls across screen to certain width.
+- When nav element is clicked, hide sidebar and show relevant page.
+
+Desktop 
+- Show the homepage with nav sidebar.
+- When nav element is clicked, show relevant page.
+
+KEY FEATURES
+- Media query dictates whether open-sidebar button is displayed and the width/placement of sidebar. Overflow-x:hidden, so sidebar can be off to the left, like W3S collapsed sidebar tutorial.
+
+MODULES
+- index
+- home
+- sidebar
+- menu
+- events
+- form modal
