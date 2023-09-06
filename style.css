@@ -7,28 +7,182 @@
 	/* color: unset; */
 }
 
+button {
+	background-color: none;
+	color: unset;
+	border: none;
+}
+
+a {
+	color: unset;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
 /* ---------------     /Reboot     --------------- */
 /* ---------------     Utilities & Universals     --------------- */
 
 :root{
-	--eg-var: red;
+	--bg-main: #ff4040;
+	--text-h1: #f5ce54;
+}
+
+body {
+	min-height: 100svh;
+
+	display: flex;
+	flex-direction: column;
+
+	background-color: var(--bg-main);
+	color: #fff;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1,
+h2 {
+	color: var(--text-h1);
 }
 
 /* ---------------     /Utilities & Universals     --------------- */
 /* ---------------     CONTENT     --------------- */
 
-
 /* ---------------     Header     --------------- */
+
+header {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid black;
+
+	& nav,
+	& ul {
+		display: flex;
+		flex: 1;
+	}
+	
+	& ul {
+		gap: 10px;
+		justify-content: center;
+	}
+}
+
 /* ---------------     /Header     --------------- */
 
 /* ---------------     Main     --------------- */
-/* ---------------     Section     --------------- */
-/* ---------------     /Section     --------------- */
+
+main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.art {
+	--art-dimensions: 90vw;
+
+	min-height: calc(var(--art-dimensions) * 1.3);
+	width: var(--art-dimensions);
+	margin: auto;
+
+	display: grid;
+	justify-content: center;
+	align-items: end;
+
+	background-image: url(https://static.wixstatic.com/media/54a4cd_5059116c59d244d08c3170b49d6e7b0f~mv2.jpg/v1/fill/w_546,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/54a4cd_5059116c59d244d08c3170b49d6e7b0f~mv2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	& h1 {
+		font-size: calc(var(--art-dimensions) * 0.6);
+		text-shadow: 0 0 5px black;
+	}
+}
+
+.reservations {
+	margin: 20px 0;
+
+	color: #ffe5e5;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-decoration: underline 1px;
+	text-underline-offset: 2px;
+}
+
+.hours {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+
+	& h2 {
+		margin-top: 10px;
+	}
+}
+
+/* ---------------     Home     --------------- */
+
+
+
+/* ---------------     /Home     --------------- */
+
+/* ---------------     Menu     --------------- */
+/* ---------------     /Menu     --------------- */
+
+/* ---------------     Events     --------------- */
+/* ---------------     /Events     --------------- */
 /* ---------------     /Main     --------------- */
 
 /* ---------------     Footer     --------------- */
+
+footer {
+	margin-top: 10px;
+	padding: 10px;
+	border-top: 1px solid black;
+
+	& .contact {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	& .author {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	
+		text-align: center;
+		font-size: 20px;
+		color: var(--text-strong);
+		
+		& p {
+			padding-top: 4px;
+		}
+	}
+}
+
+
+.fa.fa-github {
+	color: currentColor;
+	font-size: 34px;
+
+	&:hover {
+		transition: transform 0.4s ease-in-out;
+		transform: rotate(-360deg) scale(1.3);
+	}
+}
 /* ---------------     /Footer     --------------- */
 
 
 
 /* ---------------     /CONTENT     --------------- */
+
+
+/* ---------------     Media Queries     --------------- */
+
+@media screen and (min-width: 700px) {
+
+}

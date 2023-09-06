@@ -11,6 +11,10 @@
 			rel="stylesheet"
 			href="style.css"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
 		<script
 			src="main.js"
 			defer
@@ -18,8 +22,53 @@
 	</head>
 
 	<body>
-		<header></header>
-		<main id="content"></main>
-		<footer></footer>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#">home</a></li>
+					<li><a href="#">menu</a></li>
+					<li><a href="#">events</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="content">
+			<section class="home">
+				<div class="art">
+					<h1>AE</h1>
+				</div>
+				<h2 class="reservations"><a href="#">reservations</a></h2>
+				<div class="hours">
+					<h2>operating hours:</h2>
+					<p>monday-friday: 4pm-11pm</p>
+					<p>saturday: 2pm-2am</p>
+					<p>sunday: 2pm-10pm</p>
+					<h2>dinner hours:</h2>
+					<p>monday-friday: 5pm-10pm</p>
+					<p>saturday: 2pm-11am</p>
+					<p>sunday: 2pm-9pm</p>
+					<h2>happy hour:</h2>
+					<p>monday-friday: 4pm-6pm</p>
+					<p>saturday: 10pm-12am</p>
+				</div>
+			</section>
+			<section class="menu hidden"></section>
+			<section class="events hidden"></section>
+		</main>
+		<footer>
+			<div class="contact">
+				<p>Social icons</p>
+				<p>Address</p>
+			</div>
+			<div class="author">
+				<p>Walker</p>
+				<a
+					href="https://github.com/marlatte"
+					target="_blank"
+				>
+					<i class="fa fa-github"></i>
+				</a>
+				<p>Marlatt</p>
+			</div>
+		</footer>
 	</body>
 </html>
