@@ -14,7 +14,7 @@
 
 	<body>
 		<div class="sidebar">
-			<button type="button" id="close-btn" onclick="closeNav()">×</button>
+			<button type="button" id="close-btn">×</button>
 			<nav>
 				<button type="button" id="home-btn">home</button>
 				<button type="button" id="menu-btn">menu</button>
@@ -22,28 +22,64 @@
 			</nav>
 		</div>
 		<header>
-			<button type="button" id="open-btn" onclick="openNav()">
-				☰ Open Nav
-			</button>
+			<button type="button" id="open-btn">☰</button>
 		</header>
 		<main id="content">
 			<section class="home">
-				<div class="art">
-					<h1>AE</h1>
+				<div class="hero">
+					<div class="art"></div>
+					<div class="hero-text">
+						<h1>AE</h1>
+						<h2 class="reservations">
+							<a href="#">reservations</a>
+						</h2>
+						<h2 class="scroll-down">
+							<a href="#hours"
+								><i
+									class="fa fa-angle-down"
+									aria-hidden="true"
+								></i
+							></a>
+						</h2>
+					</div>
+					<div class="lanterns">
+						<div class="lantern">
+							<div class="top"></div>
+							<div class="body"></div>
+							<div class="bottom"></div>
+						</div>
+						<div class="lantern">
+							<div class="top"></div>
+							<div class="body"></div>
+							<div class="bottom"></div>
+						</div>
+						<div class="lantern">
+							<div class="top"></div>
+							<div class="body"></div>
+							<div class="bottom"></div>
+						</div>
+					</div>
 				</div>
-				<h2 class="reservations"><a href="#">reservations</a></h2>
-				<div class="hours">
-					<h2>operating hours:</h2>
-					<p>monday-friday: 4pm-11pm</p>
-					<p>saturday: 2pm-2am</p>
-					<p>sunday: 2pm-10pm</p>
-					<h2>dinner hours:</h2>
-					<p>monday-friday: 5pm-10pm</p>
-					<p>saturday: 2pm-11am</p>
-					<p>sunday: 2pm-9pm</p>
-					<h2>happy hour:</h2>
-					<p>monday-friday: 4pm-6pm</p>
-					<p>saturday: 10pm-12am</p>
+				<div class="hours-container">
+					<div id="hours" class="hours">
+						<div class="operating-hours">
+							<h2>operating hours:</h2>
+							<p>monday-friday: 4pm-11pm</p>
+							<p>saturday: 2pm-2am</p>
+							<p>sunday: 2pm-10pm</p>
+						</div>
+						<div class="dinner-hours">
+							<h2>dinner hours:</h2>
+							<p>monday-friday: 5pm-10pm</p>
+							<p>saturday: 2pm-11am</p>
+							<p>sunday: 2pm-9pm</p>
+						</div>
+						<div class="happy-hour">
+							<h2>happy hour:</h2>
+							<p>monday-friday: 4pm-6pm</p>
+							<p>saturday: 10pm-12am</p>
+						</div>
+					</div>
 				</div>
 			</section>
 			<section class="menu hidden"></section>
@@ -62,16 +98,5 @@
 				<p>Marlatt</p>
 			</div>
 		</footer>
-		<script>
-			function closeNav() {
-				document.querySelector(".sidebar").style.width = "0px";
-				document.querySelector(".sidebar").style.padding = "20px 0px";
-			}
-
-			function openNav() {
-				document.querySelector(".sidebar").style.width = "300px";
-				document.querySelector(".sidebar").style.padding = "20px";
-			}
-		</script>
 	</body>
 </html>
