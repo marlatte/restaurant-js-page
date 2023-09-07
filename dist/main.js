@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("console.log(\"Hey there\");\n\n//# sourceURL=webpack://restaurant-js-page/./src/index.js?");
+eval("console.log(\"Hey there\");\n\nconst sidebar = document.querySelector(\".sidebar\");\nconst openBtn = document.getElementById(\"open-btn\");\nconst closeBtn = document.getElementById(\"close-btn\");\n\nfunction toggleNav() {\n\tsidebar.classList.toggle(\"open\");\n}\n\nopenBtn.addEventListener(\"click\", toggleNav);\ncloseBtn.addEventListener(\"click\", toggleNav);\n\n\n//# sourceURL=webpack://restaurant-js-page/./src/index.js?");
 
 /***/ })
 
