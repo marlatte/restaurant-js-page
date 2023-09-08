@@ -55,6 +55,17 @@ h2 {
 	color: var(--text-h1);
 }
 
+h1.brand {
+	text-shadow: 0 0 5px black;
+	--font-size: 110px;
+	font-size: var(--font-size);
+	line-height: calc(var(--font-size) * 0.8);
+}
+
+.hidden {
+	display: none;
+}
+
 /* ---------------     /Utilities & Universals     --------------- */
 /* ---------------     CONTENT     --------------- */
 
@@ -146,13 +157,21 @@ header {
 
 main {
 	flex: 1;
-	margin: 20px 0 calc(var(--footer-height) * 1.3) 0;
+	margin-bottom: calc(var(--footer-height) * 1.3);
 
 	display: flex;
 	flex-direction: column;
 }
 
 /* ---------------     Home     --------------- */
+
+.home {
+	margin-top: 20px;
+
+	@media (min-width: 700px) {
+		margin-top: 0;
+	}
+}
 
 .hero {
 	--art-width: 90%;
@@ -164,13 +183,15 @@ main {
 	justify-content: center;
 
 	@media (min-width: 700px) {
-		--art-width: min(130px, 20%);
-		justify-content: space-evenly;
+		--art-width: min(190px, 20%);
+		width: min(90%, 1300px);
+		margin: auto;
+		justify-content: space-between;
 		height: calc(100svh - 100px);
 	}
 }
 
-.art {
+.home-art {
 	height: 68%;
 	width: var(--art-width);
 
@@ -195,14 +216,12 @@ main {
 
 	& h1 {
 		--font-size: min(50vw, 300px);
-		font-size: var(--font-size);
-		line-height: calc(var(--font-size) * 0.8);
-		text-shadow: 0 0 5px black;
 	}
 
 	@media (min-width: 700px) {
 		position: static;
 		place-content: center;
+		gap: 60px;
 	}
 }
 
@@ -280,9 +299,9 @@ main {
 	& .body {
 		z-index: 1;
 		height: 130px;
-		width: 110px;
+		width: 80%;
 
-		border-radius: 45px;
+		border-radius: 85px;
 		border: 1px solid var(--accent-main-dark);
 		background-color: var(--bg-main);
 		background: repeating-linear-gradient(
@@ -339,6 +358,65 @@ main {
 /* ---------------     /Home     --------------- */
 
 /* ---------------     Menu     --------------- */
+
+.menu {
+	margin-top: 5px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@media (min-width: 700px) {
+		flex-direction: row;
+		margin: 10px 20px;
+	}
+}
+
+.menu-art {
+	height: 550px;
+	width: min(100vw, 400px);
+	margin: auto;
+
+	background-image: url(https://static.wixstatic.com/media/54a4cd_b8c9537c5fcd4d859fc958942b5a5e87~mv2.jpg/v1/fill/w_952,h_1322,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/54a4cd_b8c9537c5fcd4d859fc958942b5a5e87~mv2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	@media (min-width: 700px) {
+		margin: 0;
+		height: calc(100vh - var(--footer-height) * 2.5);
+		width: min(600px, 50vw);
+	}
+}
+
+.menu-text {
+	margin: -95px 0 40px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+
+	& > * {
+		display: flex;
+		justify-content: center;
+		background-color: var(--bg-main);
+	}
+
+	& a {
+		padding: 8px 0;
+		text-transform: uppercase;
+		font-size: 30px;
+		letter-spacing: 3px;
+	}
+
+	& a:hover {
+		box-shadow: 0 0 0 1px white;
+	}
+
+	@media (min-width: 700px) {
+		margin: 0 -61px 0;
+	}
+}
+
 /* ---------------     /Menu     --------------- */
 
 /* ---------------     Events     --------------- */
