@@ -6,7 +6,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	/* color: unset; */
+	color: unset;
 }
 
 button {
@@ -37,7 +37,7 @@ h2 {
 	--text-h1: #f5ce54;
 
 	--footer-height: 70px;
-	--art-width: 90%;
+	--art-width: 100%;
 
 	scroll-behavior: smooth;
 }
@@ -179,6 +179,8 @@ main {
 .hero {
 	position: relative;
 	height: calc(100svh - 80px);
+	width: 90%;
+	margin: auto;
 
 	display: flex;
 	justify-content: center;
@@ -424,18 +426,22 @@ main {
 /* ---------------     Events     --------------- */
 
 .events .content {
-	--art-width: 100%;
-
 	width: 90%;
 	margin: auto;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 20px;
 
 	& .art {
 		height: 160px;
 		background-position: bottom;
+	}
+
+	& .text {
+		margin: 20px 0;
+		max-width: 65ch;
 	}
 
 	& h1 {
@@ -452,6 +458,28 @@ main {
 		line-height: 1.5;
 		letter-spacing: 1px;
 	}
+
+	@media (min-width: 700px) {
+		--art-width: min(300px, 30%);
+
+		height: calc(960px - 8vw);
+		width: min(90%, 1100px);
+
+		flex-direction: row-reverse;
+		align-items: stretch;
+		justify-content: space-between;
+
+		& .art {
+			flex-shrink: 0;
+			height: 100%;
+			background-position: center;
+		}
+
+		& .call-to-action {
+			align-items: start;
+			padding: 40px 0;
+		}
+	}
 }
 
 .photos {
@@ -461,6 +489,21 @@ main {
 .tier {
 	display: flex;
 	flex-direction: column;
+
+	& .image-container {
+		flex-grow: 1;
+	}
+
+	& img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	@media (min-width: 700px) {
+		width: 100%;
+		flex-direction: row;
+	}
 }
 
 .events .call-to-action {
