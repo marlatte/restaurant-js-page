@@ -14,7 +14,9 @@
 
 	<body>
 		<div class="sidebar">
-			<button type="button" id="close-btn">×</button>
+			<button type="button" class="close-btn" id="close-sidebar">
+				×
+			</button>
 			<nav>
 				<button type="button" id="home-btn">home</button>
 				<button type="button" id="menu-btn">menu</button>
@@ -22,7 +24,7 @@
 			</nav>
 		</div>
 		<header>
-			<button type="button" id="open-btn">☰</button>
+			<button type="button" id="open-sidebar">☰</button>
 			<p class="socials">Social icons</p>
 		</header>
 		<main id="content">
@@ -92,7 +94,7 @@
 				</div>
 			</section>
 			<section class="events">
-				<section class="content">
+				<article class="content">
 					<div class="art"></div>
 					<article class="text">
 						<h1>Private Dining & Events</h1>
@@ -126,11 +128,13 @@
 							<a href="tel:+1-212-517-1987">+1 212 517 1987 </a>
 						</p>
 						<div class="call-to-action">
-							<button type="button">Inquire Now</button>
+							<button class="inquire" type="button">
+								Inquire Now
+							</button>
 						</div>
 					</article>
-				</section>
-				<section class="photos">
+				</article>
+				<article class="photos">
 					<div class="tier">
 						<div class="image-container">
 							<img
@@ -173,11 +177,138 @@
 							/>
 						</div>
 					</div>
-				</section>
-				<section class="call-to-action">
+				</article>
+				<article class="call-to-action">
 					<p>Let us host your next event</p>
-					<button type="button">Inquire Now</button>
-				</section>
+					<button class="inquire" type="button">Inquire Now</button>
+				</article>
+				<article class="modal">
+					<form>
+						<section class="form-header">
+							<h3>Let's get some info!</h3>
+							<button
+								type="button"
+								class="close-btn"
+								id="close-modal"
+							>
+								×
+							</button>
+						</section>
+						<section class="event-contact">
+							<h4>Contact</h4>
+							<div class="form-item">
+								<label for="first-name">First Name:</label>
+								<input id="first-name" type="text" />
+							</div>
+							<div class="form-item">
+								<label for="last-name">Last Name:</label>
+								<input id="last-name" type="text" />
+							</div>
+							<div class="form-item">
+								<label for="email">Email: </label>
+								<input id="email" type="email" />
+							</div>
+							<div class="form-item">
+								<label for="phone">Phone Number:</label>
+								<input id="phone" type="tel" />
+							</div>
+							<div class="form-item">
+								<label for="company">Company</label>
+								<input id="company" type="text" />
+							</div>
+						</section>
+						<section class="event-details">
+							<h4>Event Details</h4>
+							<div class="form-item">
+								<label for="event-type">Type of Event</label>
+								<input
+									id="event-type"
+									type="text"
+									placeholder="Birthday Party, Business Dinner, etc."
+								/>
+							</div>
+							<fieldset>
+								<legend>Location:</legend>
+								<div class="form-item">
+									<label>
+										<input
+											name="location"
+											type="radio"
+											value="asset"
+										/>
+										ASSET - 329 Columbus Ave.
+									</label>
+								</div>
+								<div class="form-item">
+									<label>
+										<input
+											name="location"
+											type="radio"
+											value="tessa"
+										/>
+										TESSA - 349 Amsterdam Ave.
+									</label>
+								</div>
+							</fieldset>
+							<div class="form-item">
+								<label for="event-date">Date:</label>
+								<input id="event-date" type="date" />
+							</div>
+							<div class="form-item">
+								<label for="start-time">Start Time:</label>
+								<input id="start-time" type="time" />
+							</div>
+							<div class="form-item">
+								<label for="end-time">End Time:</label>
+								<input id="end-time" type="time" />
+							</div>
+							<div class="form-item">
+								<label for="num-people">
+									Number of People:
+								</label>
+								<input id="num-people" type="number" />
+							</div>
+							<div class="form-item">
+								<label for="extra-info">
+									Is there any additional information you
+									would like to add?
+								</label>
+								<textarea
+									name="extra-info"
+									id="extra-info"
+									cols="30"
+									rows="10"
+									placeholder="Surprises, Dietary Needs, etc."
+								>
+								</textarea>
+							</div>
+							<div class="form-item">
+								<label for="referral-source">
+									How did you hear about us?
+								</label>
+								<select
+									name="referral-source"
+									id="referral-source"
+								>
+									<option value="">Select an option</option>
+									<option value="eventUp">EventUp</option>
+									<option value="instagram">Instagram</option>
+									<option value="facebook">Facebook</option>
+									<option value="tripleseat">
+										Venues by Tripleseat
+									</option>
+									<option value="search">
+										Search Engine
+									</option>
+									<option value="email">Email</option>
+									<option value="other">Other</option>
+									<option value="website">Website</option>
+								</select>
+							</div>
+						</section>
+						<button type="submit">Submit</button>
+					</form>
+				</article>
 			</section>
 		</main>
 		<footer>

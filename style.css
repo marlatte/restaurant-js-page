@@ -92,10 +92,8 @@ h1.brand {
 		padding: 20px;
 	}
 
-	#close-btn {
+	#close-sidebar {
 		align-self: end;
-		font-size: 50px;
-		line-height: 30px;
 	}
 
 	@media (min-width: 700px) {
@@ -105,10 +103,17 @@ h1.brand {
 		box-shadow: 0px 0px 5px var(--accent-main-dark);
 		border: none;
 
-		#close-btn {
+		#close-sidebar {
 			display: none;
 		}
 	}
+}
+
+.close-btn {
+	--font-size: 50px;
+
+	font-size: var(--font-size);
+	line-height: calc(var(--font-size) * 0.6);
 }
 
 nav {
@@ -140,7 +145,7 @@ header {
 	box-shadow: 0px 0px 5px var(--accent-main-dark);
 	font-size: 24px;
 
-	#open-btn {
+	#open-sidebar {
 		padding: 15px;
 		background-color: black;
 	}
@@ -155,7 +160,6 @@ header {
 /* ---------------     Main     --------------- */
 
 main {
-	flex: 1;
 	margin-bottom: calc(var(--footer-height) * 1.3);
 
 	display: flex;
@@ -507,7 +511,7 @@ main {
 }
 
 .events .call-to-action {
-	padding: 40px;
+	padding: 90px 0;
 
 	display: flex;
 	flex-direction: column;
@@ -527,9 +531,45 @@ main {
 
 		font-size: 18px;
 		text-transform: uppercase;
+
+		transition: all 0.3s;
+	}
+
+	& button:hover {
+		background-color: #fff;
+		color: var(--bg-main);
 	}
 }
 
+/* ---------------     Modal     --------------- */
+
+.modal {
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	height: 100vh;
+	width: 100vw;
+
+	display: grid;
+	place-content: center;
+
+	background-color: rgba(200, 200, 200, 0.5);
+	backdrop-filter: blur(2px);
+}
+
+form {
+	padding: 10px;
+	width: min(90vw, 500px);
+
+	background-color: skyblue;
+}
+
+.form-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* ---------------     /Modal     --------------- */
 /* ---------------     /Events     --------------- */
 /* ---------------     /Main     --------------- */
 
