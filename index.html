@@ -194,118 +194,149 @@
 								×
 							</button>
 						</section>
-						<section class="event-contact">
-							<h4>Contact</h4>
-							<div class="form-item">
-								<label for="first-name">First Name:</label>
-								<input id="first-name" type="text" />
-							</div>
-							<div class="form-item">
-								<label for="last-name">Last Name:</label>
-								<input id="last-name" type="text" />
-							</div>
-							<div class="form-item">
-								<label for="email">Email: </label>
-								<input id="email" type="email" />
-							</div>
-							<div class="form-item">
-								<label for="phone">Phone Number:</label>
-								<input id="phone" type="tel" />
-							</div>
-							<div class="form-item">
-								<label for="company">Company</label>
-								<input id="company" type="text" />
-							</div>
-						</section>
-						<section class="event-details">
-							<h4>Event Details</h4>
-							<div class="form-item">
-								<label for="event-type">Type of Event</label>
-								<input
-									id="event-type"
-									type="text"
-									placeholder="Birthday Party, Business Dinner, etc."
-								/>
-							</div>
-							<fieldset>
-								<legend>Location:</legend>
+						<div class="form-content">
+							<section class="event-contact">
+								<h4>Contact</h4>
+								<div class="form-row">
+									<div class="form-item">
+										<label for="first-name"
+											>First Name:</label
+										>
+										<input id="first-name" type="text" />
+									</div>
+									<div class="form-item">
+										<label for="last-name"
+											>Last Name:</label
+										>
+										<input id="last-name" type="text" />
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-item">
+										<label for="email">Email: </label>
+										<input id="email" type="email" />
+									</div>
+									<div class="form-item">
+										<label for="phone">Phone Number:</label>
+										<input id="phone" type="tel" />
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-item">
+										<label for="company">Company</label>
+										<input id="company" type="text" />
+									</div>
+								</div>
+							</section>
+							<section class="event-details">
+								<h4>Event Details</h4>
 								<div class="form-item">
-									<label>
-										<input
-											name="location"
-											type="radio"
-											value="asset"
-										/>
-										ASSET - 329 Columbus Ave.
+									<label for="event-type"
+										>Type of Event</label
+									>
+									<input
+										id="event-type"
+										type="text"
+										placeholder="Birthday, Business Dinner, etc."
+									/>
+								</div>
+								<fieldset>
+									<legend>Location:</legend>
+									<div class="form-item">
+										<label>
+											<input
+												name="location"
+												type="radio"
+												value="asset"
+											/>
+											<span>
+												ASSET - 329 Columbus Ave.
+											</span>
+										</label>
+									</div>
+									<div class="form-item">
+										<label>
+											<input
+												name="location"
+												type="radio"
+												value="tessa"
+											/>
+											<span
+												>TESSA - 349 Amsterdam Ave.
+											</span>
+										</label>
+									</div>
+								</fieldset>
+								<div class="form-row">
+									<div class="form-item">
+										<label for="party-size">
+											Party Size:
+										</label>
+										<input id="party-size" type="number" />
+									</div>
+									<div class="form-item">
+										<label for="event-date">Date:</label>
+										<input id="event-date" type="date" />
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-item">
+										<label for="start-time"
+											>Start Time:</label
+										>
+										<input id="start-time" type="time" />
+									</div>
+									<div class="form-item">
+										<label for="end-time">End Time:</label>
+										<input id="end-time" type="time" />
+									</div>
+								</div>
+							</section>
+							<section class="event-extras">
+								<h4>Extras</h4>
+								<div class="form-item">
+									<label for="extra-info">
+										Is there any additional information you
+										would like to add?
 									</label>
+									<textarea
+										name="extra-info"
+										id="extra-info"
+										rows="6"
+										placeholder="Surprises, Dietary Needs, etc."
+									></textarea>
 								</div>
 								<div class="form-item">
-									<label>
-										<input
-											name="location"
-											type="radio"
-											value="tessa"
-										/>
-										TESSA - 349 Amsterdam Ave.
+									<label for="referral-source">
+										How did you hear about us?
 									</label>
+									<select
+										name="referral-source"
+										id="referral-source"
+									>
+										<option value="">
+											Select an option
+										</option>
+										<option value="eventUp">EventUp</option>
+										<option value="instagram">
+											Instagram
+										</option>
+										<option value="facebook">
+											Facebook
+										</option>
+										<option value="tripleseat">
+											Venues by Tripleseat
+										</option>
+										<option value="search">
+											Search Engine
+										</option>
+										<option value="email">Email</option>
+										<option value="other">Other</option>
+										<option value="website">Website</option>
+									</select>
 								</div>
-							</fieldset>
-							<div class="form-item">
-								<label for="event-date">Date:</label>
-								<input id="event-date" type="date" />
-							</div>
-							<div class="form-item">
-								<label for="start-time">Start Time:</label>
-								<input id="start-time" type="time" />
-							</div>
-							<div class="form-item">
-								<label for="end-time">End Time:</label>
-								<input id="end-time" type="time" />
-							</div>
-							<div class="form-item">
-								<label for="num-people">
-									Number of People:
-								</label>
-								<input id="num-people" type="number" />
-							</div>
-							<div class="form-item">
-								<label for="extra-info">
-									Is there any additional information you
-									would like to add?
-								</label>
-								<textarea
-									name="extra-info"
-									id="extra-info"
-									cols="30"
-									rows="10"
-									placeholder="Surprises, Dietary Needs, etc."
-								>
-								</textarea>
-							</div>
-							<div class="form-item">
-								<label for="referral-source">
-									How did you hear about us?
-								</label>
-								<select
-									name="referral-source"
-									id="referral-source"
-								>
-									<option value="">Select an option</option>
-									<option value="eventUp">EventUp</option>
-									<option value="instagram">Instagram</option>
-									<option value="facebook">Facebook</option>
-									<option value="tripleseat">
-										Venues by Tripleseat
-									</option>
-									<option value="search">
-										Search Engine
-									</option>
-									<option value="email">Email</option>
-									<option value="other">Other</option>
-									<option value="website">Website</option>
-								</select>
-							</div>
-						</section>
+							</section>
+						</div>
 						<button type="submit">Submit</button>
 					</form>
 				</article>
