@@ -1,5 +1,8 @@
+import { buildMenu } from "./menu.js";
+
 console.log("Hey there");
 
+const mainContent = document.getElementById("content");
 const sidebar = document.querySelector(".sidebar");
 const openSidebar = document.getElementById("open-sidebar");
 const closeSidebar = document.getElementById("close-sidebar");
@@ -32,4 +35,12 @@ closeModal.addEventListener("click", toggleModal);
 function toggleModal() {
 	const modal = document.querySelector(".modal");
 	modal.classList.toggle("hidden");
+}
+
+// menu.js
+const menuBtn = document.getElementById("menu-btn");
+menuBtn.addEventListener("click", displayMenu);
+function displayMenu() {
+	console.log(mainContent.children);
+	// mainContent.appendChild(buildMenu());
 }
