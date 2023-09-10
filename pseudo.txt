@@ -16,7 +16,11 @@ KEY FEATURES
 MODULES
 - index
 - home
-- sidebar
+	- hero
+	- hours-container
 - menu
 - events
-- form modal
+	- content
+	- photos
+	- call-to-action
+	- form modal

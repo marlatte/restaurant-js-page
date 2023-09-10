@@ -20,6 +20,7 @@ form.addEventListener("submit", handleFormSubmit);
 function handleFormSubmit(e) {
 	e.preventDefault();
 	console.log("Form submitted.");
+	toggleModal();
 }
 
 inquireBtns.forEach((button) => {
