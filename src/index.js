@@ -1,4 +1,4 @@
-import { buildMenu } from "./menu.js";
+import { buildMenu, tester } from "./menu.js";
 
 console.log("Hey there");
 
@@ -38,9 +38,23 @@ function toggleModal() {
 }
 
 // menu.js
-const menuBtn = document.getElementById("menu-btn");
-menuBtn.addEventListener("click", displayMenu);
-function displayMenu() {
-	console.log(mainContent.children);
-	// mainContent.appendChild(buildMenu());
+document.getElementById("menu-btn").addEventListener("click", () => {
+	mainContent.textContent = "";
+	mainContent.appendChild(buildMenu());
+});
+
+////////////// EXPORTS ///////////////
+export function elFactory(obj) {
+	const el = document.createElement(obj.type);
+	const attributes = obj.attributes;
+
+	for (let key in attributes) {
+		el[key] = attributes[key];
+	}
+
+	obj.children?.forEach((child) => {
+		el.appendChild(elFactory(child));
+	});
+
+	return el;
 }
