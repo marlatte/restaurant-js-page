@@ -1,28 +1,89 @@
-export function displayHome() {
-	const mainContent = document.getElementById("content");
-	mainContent.appendChild(buildHome());
-}
+import { elFactory, htmlFactory } from "./index.js";
 
-function buildHome() {
-	const homeSection = document.createElement("section");
-	homeSection.classList.add("home");
-}
+export function buildHome() {
+	const heroText = elFactory("div", { classList: "hero-text" }, [
+		elFactory("h1", { classList: "brand", textContent: "AE" }),
+		elFactory("div", { classList: "reservations" }, [
+			elFactory("a", {
+				href: "https://resy.com/cities/ny/asset",
+				textContent: "reservations",
+			}),
+		]),
+		elFactory("div", { classList: "scroll-down" }, [
+			elFactory("a", { href: "#hours" }, [
+				elFactory("i", {
+					classList: "fa fa-angle-down",
+				}),
+			]),
+		]),
+	]);
 
-function buildHero() {
-	const hero = document.createElement("div");
-	hero.classList.add("hero");
-}
+	const lanterns = elFactory("div", { classList: "lanterns" });
+	for (let i = 0; i < 3; i++) {
+		lanterns.children.push(
+			elFactory("div", { classList: "lantern" }, [
+				...["top", "body", "bottom"].map((text) => {
+					return elFactory("div", {
+						classList: text,
+					});
+				}),
+			])
+		);
+	}
 
-function buildLanterns() {}
+	const hoursDetails = [
+		{
+			schedule: "operating hours",
+			hoursText: {
+				"monday-friday": "4pm-11pm",
+				saturday: "2pm-2am",
+				sunday: "2pm-10pm",
+			},
+		},
+		{
+			schedule: "dinner hours",
+			hoursText: {
+				"monday-thursday": "5pm-10pm",
+				friday: "5pm-11pm",
+				saturday: "2pm-11pm",
+				sunday: "2pm-9pm",
+			},
+		},
+		{
+			schedule: "happy hour",
+			hoursText: {
+				"monday-friday": "4pm-6pm",
+				saturday: "10pm-12am",
+			},
+		},
+	];
 
-function buildHours() {
-	const hoursContainer = document.createElement("div");
-	hoursContainer.classList.add("hours-container");
-}
+	const hoursDivs = hoursDetails.map((hoursObject) => {
+		return elFactory(
+			"div",
+			{
+				classList: hoursObject.schedule.split(" ").join("-"),
+			},
+			[
+				elFactory("h2", { textContent: hoursObject.schedule + ":" }),
+				...Object.entries(hoursObject.hoursText).map((entry) => {
+					return elFactory("p", {
+						textContent: `${entry[0]}: ${entry[1]} `,
+					});
+				}),
+			]
+		);
+	});
 
-function setHours() {
-	// Store hours in array of objects
-	// Iterate through and create divs with class=`${schedule.split(" ").join("-")}`
-	// eg: {schedule: "operating hours", m-f: "4pm-11pm", sat: "2pm-2am", sun: "2pm-10pm"}
-	// Need a check for last key since there's no happy hour on sunday
+	const homeDiv = elFactory("div", { classList: "home dynamic" }, [
+		elFactory("section", { classList: "hero" }, [
+			elFactory("div", { classList: "art" }),
+			heroText,
+			lanterns,
+		]),
+		elFactory("section", { classList: "hours-container" }, [
+			elFactory("div", { classList: "hours", id: "hours" }, hoursDivs),
+		]),
+	]);
+	return htmlFactory(homeDiv);
 }

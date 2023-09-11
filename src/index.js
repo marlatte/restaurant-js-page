@@ -1,4 +1,5 @@
 import { buildMenu } from "./menu.js";
+import { buildHome } from "./home.js";
 
 console.log("Hey there");
 
@@ -13,6 +14,12 @@ function toggleNav() {
 
 openSidebar.addEventListener("click", toggleNav);
 closeSidebar.addEventListener("click", toggleNav);
+
+// home.js
+document.getElementById("home-btn").addEventListener("click", () => {
+	mainContent.textContent = "";
+	mainContent.appendChild(buildHome());
+});
 
 // events.js
 const inquireBtns = document.querySelectorAll(".inquire");
