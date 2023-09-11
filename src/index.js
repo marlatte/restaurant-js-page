@@ -1,4 +1,4 @@
-import { buildMenu, tester } from "./menu.js";
+import { buildMenu } from "./menu.js";
 
 console.log("Hey there");
 
@@ -44,7 +44,11 @@ document.getElementById("menu-btn").addEventListener("click", () => {
 });
 
 ////////////// EXPORTS ///////////////
-export function elFactory(obj) {
+export const elFactory = (type, attributes, children = []) => {
+	return { type, attributes, children };
+};
+
+export function htmlFactory(obj) {
 	const el = document.createElement(obj.type);
 	const attributes = obj.attributes;
 
@@ -53,7 +57,7 @@ export function elFactory(obj) {
 	}
 
 	obj.children?.forEach((child) => {
-		el.appendChild(elFactory(child));
+		el.appendChild(htmlFactory(child));
 	});
 
 	return el;

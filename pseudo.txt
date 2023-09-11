@@ -22,5 +22,7 @@ MODULES
 - events
 	- content
 	- photos
+		- for each pic, use an array of objects to store the link and altText together, iterating over them with .map(image, index) to create each image-container and if it's at an odd index, create a div.tier, else add it to the last tier.
 	- call-to-action
 	- form modal
+		
