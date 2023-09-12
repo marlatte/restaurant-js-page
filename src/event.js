@@ -1,16 +1,5 @@
 import { htmlFactory, elFactory } from "./index.js";
 
-/*
-- events
-	- content
-	- photos
-		- for each pic, use an array of objects to store the link and altText together, 
-		- Iterate over them with .map(image, index) to create each image-container
-			- If it's at an odd index, create a div.tier, else add it to the last tier.
-	- call-to-action
-	- form modal
-*/
-
 export function buildEvents() {
 	const [eventsContent, photos, callToAction, modalForm] = [
 		"content",
@@ -26,7 +15,7 @@ export function buildEvents() {
 		elFactory("div", { classList: "text" }, createTextChildren())
 	);
 
-	// photos.children.push(...createPhotos());
+	photos.children.push(...createPhotos());
 
 	callToAction.children.push(
 		elFactory("p", { textContent: "Let us host your next event" }),
@@ -37,7 +26,7 @@ export function buildEvents() {
 		})
 	);
 
-	// modalForm.children.push(...createModal());
+	modalForm.children.push(createModalForm());
 
 	return htmlFactory(
 		elFactory("div", { classList: "events dynamic" }, [
@@ -115,9 +104,105 @@ function createTextChildren() {
 }
 
 function createPhotos() {
-	// Returns array of children
+	return [
+		{
+			src: "https://static.wixstatic.com/media/bbf025b2a19440d197cbef666fffbc8e.jpg/v1/fill/w_999,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/bbf025b2a19440d197cbef666fffbc8e.jpg",
+			alt: "People drinking at a bar",
+		},
+		{
+			src: "https://static.wixstatic.com/media/54a4cd_a265a2f258344c159c3d06fcebd940ee~mv2.jpg/v1/fill/w_666,h_600,al_l,q_85,usm_0.66_1.00_0.01,enc_auto/54a4cd_a265a2f258344c159c3d06fcebd940ee~mv2.jpg",
+			alt: "A glass of wine and plate of food",
+		},
+		{
+			src: "https://static.wixstatic.com/media/54a4cd_95184a86aeee42bc8f2b65d4148acddf~mv2_d_1950_1308_s_2.jpg/v1/fill/w_666,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/54a4cd_95184a86aeee42bc8f2b65d4148acddf~mv2_d_1950_1308_s_2.jpg",
+			alt: "A DJ booth",
+		},
+		{
+			src: "https://static.wixstatic.com/media/54a4cd_b2e536abf0ea436d90557c5e528a1ec0~mv2.png/v1/fill/w_999,h_600,al_l,q_90,usm_0.66_1.00_0.01,enc_auto/54a4cd_b2e536abf0ea436d90557c5e528a1ec0~mv2.png",
+			alt: "A bar full of people",
+		},
+		{
+			src: "https://static.wixstatic.com/media/54a4cd_66643885bf2e44d7a5f9396cd26f6e97~mv2.jpg/v1/fill/w_833,h_550,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/54a4cd_66643885bf2e44d7a5f9396cd26f6e97~mv2.jpg",
+			alt: "An empty bar, lit from underneath",
+		},
+		{
+			src: "https://static.wixstatic.com/media/54a4cd_5c02480400154bbebd0758eb2f8d7b8d~mv2_d_1600_1200_s_2.jpg/v1/fill/w_833,h_550,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/54a4cd_5c02480400154bbebd0758eb2f8d7b8d~mv2_d_1600_1200_s_2.jpg",
+			alt: "Restaurant staff",
+		},
+	]
+		.map((imgObj, index) => {
+			const [src, alt] = [imgObj.src, imgObj.alt];
+			return elFactory("div", { classList: "image-container" }, [
+				elFactory("img", { src, alt }),
+			]);
+		})
+		.reduce((acc, currentImg, index) => {
+			if (!(index & 1)) {
+				// If even, create tier with child img
+				acc.push(elFactory("div", { classList: "tier" }, [currentImg]));
+				return acc;
+			} else {
+				// If odd, add img child to previous tier
+				acc[acc.length - 1].children.push(currentImg);
+				return acc;
+			}
+		}, []);
 }
 
-function createModal() {
-	// Returns array of children
+function createModalForm() {
+	const [eventContact, eventDetails, eventExtras] = [
+		"event-contact",
+		"event-details",
+		"event-extras",
+	].map((el) => {
+		return elFactory("section", { classList: el });
+	});
+
+	eventContact.children.push(elFactory("h4", { textContent: "Contact" }));
+
+	return elFactory("form", {}, [
+		elFactory("section", { classList: "form-header" }, [
+			elFactory("h3", { textContent: "Let's get some info!" }),
+			elFactory("button", {
+				type: "button",
+				class: "close-btn",
+				id: "close-modal",
+				textContent: "×",
+			}),
+		]),
+		elFactory("div", { classList: "form-content" }, [
+			eventContact,
+			eventDetails,
+			eventExtras,
+		]),
+		elFactory("button", { type: "submit", textContent: "Submit" }),
+	]);
 }
+
+/*
+- event-contact
+	- h4
+	- form-row
+		- form-item
+			- label
+			- input
+		- form-item
+			- label
+			- input
+	- form-row
+		- form-item
+			- label
+			- input
+		- form-item
+			- label
+			- input
+	- form-row
+		- form-item
+			- label
+			- input
+- event-details
+- event-extras
+
+
+Each form-item has a label and an input, each of which have attributes, but if the only things changing are the id/for/textContent (which are all linked), and the type, then I only need to store that info in the base array.
+*/
