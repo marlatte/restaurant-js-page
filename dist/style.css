@@ -104,6 +104,10 @@ h1.brand {
 		box-shadow: 0px 0px 5px var(--accent-main-dark);
 		border: none;
 
+		&.open {
+			width: 100%;
+		}
+
 		#close-sidebar {
 			display: none;
 		}

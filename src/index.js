@@ -2,37 +2,34 @@ import { buildMenu } from "./menu.js";
 import { buildHome } from "./home.js";
 import { buildEvents, listenForClicks } from "./event.js";
 
-console.log("Hey there");
-
 const mainContent = document.getElementById("content");
 const sidebar = document.querySelector(".sidebar");
-const openSidebar = document.getElementById("open-sidebar");
-const closeSidebar = document.getElementById("close-sidebar");
 
-function toggleNav() {
-	sidebar.classList.toggle("open");
+document.querySelectorAll(".sidebar-toggler").forEach((button) => {
+	button.addEventListener("click", () => {
+		sidebar.classList.toggle("open");
+	});
+});
+
+function handleBuildClick(tabChoice) {
+	mainContent.textContent = "";
+	mainContent.appendChild(
+		tabChoice === "home-btn"
+			? buildHome()
+			: tabChoice === "events-btn"
+			? buildEvents()
+			: buildMenu()
+	);
+	sidebar.classList = "sidebar";
+	if (tabChoice === "events-btn") {
+		listenForClicks();
+	}
 }
 
-openSidebar.addEventListener("click", toggleNav);
-closeSidebar.addEventListener("click", toggleNav);
-
-// home.js
-document.getElementById("home-btn").addEventListener("click", () => {
-	mainContent.textContent = "";
-	mainContent.appendChild(buildHome());
-});
-
-// events.js
-document.getElementById("events-btn").addEventListener("click", () => {
-	mainContent.textContent = "";
-	mainContent.appendChild(buildEvents());
-	listenForClicks();
-});
-
-// menu.js
-document.getElementById("menu-btn").addEventListener("click", () => {
-	mainContent.textContent = "";
-	mainContent.appendChild(buildMenu());
+document.querySelectorAll(".nav-btn").forEach((button) => {
+	button.addEventListener("click", (e) => {
+		handleBuildClick(e.target.id);
+	});
 });
 
 ////////////// EXPORTS ///////////////
