@@ -1,5 +1,6 @@
 import { buildMenu } from "./menu.js";
 import { buildHome } from "./home.js";
+import { buildEvents, listenForClicks } from "./event.js";
 
 console.log("Hey there");
 
@@ -22,27 +23,11 @@ document.getElementById("home-btn").addEventListener("click", () => {
 });
 
 // events.js
-const inquireBtns = document.querySelectorAll(".inquire");
-const closeModal = document.getElementById("close-modal");
-const form = document.querySelector("form");
-
-form.addEventListener("submit", handleFormSubmit);
-function handleFormSubmit(e) {
-	e.preventDefault();
-	console.log("Form submitted.");
-	toggleModal();
-}
-
-inquireBtns.forEach((button) => {
-	button.addEventListener("click", toggleModal);
+document.getElementById("events-btn").addEventListener("click", () => {
+	mainContent.textContent = "";
+	mainContent.appendChild(buildEvents());
+	listenForClicks();
 });
-
-closeModal.addEventListener("click", toggleModal);
-
-function toggleModal() {
-	const modal = document.querySelector(".modal");
-	modal.classList.toggle("hidden");
-}
 
 // menu.js
 document.getElementById("menu-btn").addEventListener("click", () => {
