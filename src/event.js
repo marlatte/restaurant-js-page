@@ -1,7 +1,8 @@
+import { createForm } from "./form.js";
 import { htmlFactory, elFactory } from "./index.js";
 
 export function buildEvents() {
-	const [eventsContent, photos, callToAction, modalForm] = [
+	const [eventsContent, photos, callToAction, modalElement] = [
 		"content",
 		"photos",
 		"call-to-action",
@@ -26,14 +27,14 @@ export function buildEvents() {
 		})
 	);
 
-	modalForm.children.push(createModalForm());
+	modalElement.children.push(createForm);
 
 	return htmlFactory(
 		elFactory("div", { classList: "events dynamic" }, [
 			eventsContent,
 			photos,
 			callToAction,
-			modalForm,
+			modalElement,
 		])
 	);
 }
@@ -149,36 +150,6 @@ function createPhotos() {
 		}, []);
 }
 
-function createModalForm() {
-	const [eventContact, eventDetails, eventExtras] = [
-		"event-contact",
-		"event-details",
-		"event-extras",
-	].map((el) => {
-		return elFactory("section", { classList: el });
-	});
-
-	eventContact.children.push(elFactory("h4", { textContent: "Contact" }));
-
-	return elFactory("form", {}, [
-		elFactory("section", { classList: "form-header" }, [
-			elFactory("h3", { textContent: "Let's get some info!" }),
-			elFactory("button", {
-				type: "button",
-				class: "close-btn",
-				id: "close-modal",
-				textContent: "×",
-			}),
-		]),
-		elFactory("div", { classList: "form-content" }, [
-			eventContact,
-			eventDetails,
-			eventExtras,
-		]),
-		elFactory("button", { type: "submit", textContent: "Submit" }),
-	]);
-}
-
 /*
 - event-contact
 	- h4
@@ -205,4 +176,7 @@ function createModalForm() {
 
 
 Each form-item has a label and an input, each of which have attributes, but if the only things changing are the id/for/textContent (which are all linked), and the type, then I only need to store that info in the base array.
+
+
+
 */
