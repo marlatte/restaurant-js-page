@@ -607,9 +607,9 @@ form {
 	font-size: 20px;
 }
 
-.event-contact,
-.event-details,
-.event-extras {
+.form-contact,
+.form-details,
+.form-extras {
 	display: flex;
 	flex-direction: column;
 	gap: var(--form-spacer);
@@ -628,7 +628,7 @@ form {
 	gap: calc(var(--form-spacer) * 0.5);
 }
 
-.event-details .form-row .form-item {
+.form-details .form-row .form-item {
 	width: 47%;
 }
 

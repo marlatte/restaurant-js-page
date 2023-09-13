@@ -27,7 +27,7 @@ export function buildEvents() {
 		})
 	);
 
-	modalElement.children.push(createForm);
+	modalElement.children.push(createForm());
 
 	return htmlFactory(
 		elFactory("div", { classList: "events dynamic" }, [
@@ -40,27 +40,30 @@ export function buildEvents() {
 }
 
 export function listenForClicks() {
+	const modal = document.querySelector(".modal");
+
 	const inquireBtns = document.querySelectorAll(".inquire");
 	inquireBtns.forEach((button) => {
-		button.addEventListener("click", toggleModal);
+		button.addEventListener("click", () => {
+			modal.classList.remove("hidden");
+		});
 	});
 
-	const closeModal = document.querySelectorAll(".close-modal");
-	closeModal.forEach((closer) => {
-		closer.addEventListener("click", toggleModal);
+	const closeModalBtns = document.querySelectorAll(".close-modal");
+	closeModalBtns.forEach((closer) => {
+		closer.addEventListener("click", (e) => {
+			if (e.target.classList.value.includes("close-modal")) {
+				modal.classList.add("hidden");
+			}
+		});
 	});
 
-	function toggleModal() {
-		const modal = document.querySelector(".modal");
-		modal.classList.toggle("hidden");
-	}
-
-	// const form = document.querySelector("form");
-	// form.addEventListener("submit", (e) => {
-	// 	e.preventDefault();
-	// 	console.log("Form submitted.");
-	// 	toggleModal();
-	// });
+	const form = document.querySelector("form");
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+		console.log("Form submitted.");
+		modal.classList.add("hidden");
+	});
 }
 
 function createTextChildren() {
