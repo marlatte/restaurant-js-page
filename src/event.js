@@ -1,71 +1,6 @@
 import { createForm } from "./form.js";
 import { htmlFactory, elFactory } from "./index.js";
 
-export function buildEvents() {
-	const [eventsContent, photos, callToAction, modalElement] = [
-		"content",
-		"photos",
-		"call-to-action",
-		"modal close-modal hidden",
-	].map((el) => {
-		return elFactory("article", { classList: el });
-	});
-
-	eventsContent.children.push(
-		elFactory("div", { classList: "art" }),
-		elFactory("div", { classList: "text" }, createTextChildren())
-	);
-
-	photos.children.push(...createPhotos());
-
-	callToAction.children.push(
-		elFactory("p", { textContent: "Let us host your next event" }),
-		elFactory("button", {
-			classList: "inquire",
-			type: "button",
-			textContent: "Inquire Now",
-		})
-	);
-
-	modalElement.children.push(createForm());
-
-	return htmlFactory(
-		elFactory("div", { classList: "events dynamic" }, [
-			eventsContent,
-			photos,
-			callToAction,
-			modalElement,
-		])
-	);
-}
-
-export function listenForClicks() {
-	const modal = document.querySelector(".modal");
-
-	const inquireBtns = document.querySelectorAll(".inquire");
-	inquireBtns.forEach((button) => {
-		button.addEventListener("click", () => {
-			modal.classList.remove("hidden");
-		});
-	});
-
-	const closeModalBtns = document.querySelectorAll(".close-modal");
-	closeModalBtns.forEach((closer) => {
-		closer.addEventListener("click", (e) => {
-			if (e.target.classList.value.includes("close-modal")) {
-				modal.classList.add("hidden");
-			}
-		});
-	});
-
-	const form = document.querySelector("form");
-	form.addEventListener("submit", (e) => {
-		e.preventDefault();
-		console.log("Form submitted.");
-		modal.classList.add("hidden");
-	});
-}
-
 function createTextChildren() {
 	const textChildren = [
 		["h1", "Private Dining & Events"],
@@ -153,33 +88,67 @@ function createPhotos() {
 		}, []);
 }
 
-/*
-- event-contact
-	- h4
-	- form-row
-		- form-item
-			- label
-			- input
-		- form-item
-			- label
-			- input
-	- form-row
-		- form-item
-			- label
-			- input
-		- form-item
-			- label
-			- input
-	- form-row
-		- form-item
-			- label
-			- input
-- event-details
-- event-extras
+export function buildEvents() {
+	const [eventsContent, photos, callToAction, modalElement] = [
+		"content",
+		"photos",
+		"call-to-action",
+		"modal close-modal hidden",
+	].map((el) => {
+		return elFactory("article", { classList: el });
+	});
 
+	eventsContent.children.push(
+		elFactory("div", { classList: "art" }),
+		elFactory("div", { classList: "text" }, createTextChildren())
+	);
 
-Each form-item has a label and an input, each of which have attributes, but if the only things changing are the id/for/textContent (which are all linked), and the type, then I only need to store that info in the base array.
+	photos.children.push(...createPhotos());
 
+	callToAction.children.push(
+		elFactory("p", { textContent: "Let us host your next event" }),
+		elFactory("button", {
+			classList: "inquire",
+			type: "button",
+			textContent: "Inquire Now",
+		})
+	);
 
+	modalElement.children.push(createForm());
 
-*/
+	return htmlFactory(
+		elFactory("div", { classList: "events dynamic" }, [
+			eventsContent,
+			photos,
+			callToAction,
+			modalElement,
+		])
+	);
+}
+
+export function listenForClicks() {
+	const modal = document.querySelector(".modal");
+
+	const inquireBtns = document.querySelectorAll(".inquire");
+	inquireBtns.forEach((button) => {
+		button.addEventListener("click", () => {
+			modal.classList.remove("hidden");
+		});
+	});
+
+	const closeModalBtns = document.querySelectorAll(".close-modal");
+	closeModalBtns.forEach((closer) => {
+		closer.addEventListener("click", (e) => {
+			if (e.target.classList.value.includes("close-modal")) {
+				modal.classList.add("hidden");
+			}
+		});
+	});
+
+	const form = document.querySelector("form");
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+		console.log("Form submitted.");
+		modal.classList.add("hidden");
+	});
+}
