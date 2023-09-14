@@ -18,7 +18,7 @@ function createTextChildren() {
 			"p",
 			"We are pleased to offer our services for your next occasions. Book our entire restaurant for a special evening, catered just for you and your guests. Let us bring the ASSET experience to your wedding, birthdays and other large events",
 		],
-		["p", "Inquire or contact us at"],
+		["p", "Inquire below or contact us at:"],
 	].map((entry) => {
 		return elFactory(entry[0], { textContent: entry[1] });
 	});
@@ -27,6 +27,7 @@ function createTextChildren() {
 		elFactory("a", {
 			href: "tel:+1-212-517-1987",
 			textContent: "+1 212 517 1987",
+			classList: "underline",
 		})
 	);
 

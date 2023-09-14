@@ -1,8 +1,13 @@
 import { buildMenu } from "./menu.js";
 import { buildHome } from "./home.js";
 import { buildEvents, listenForClicks } from "./event.js";
+import { buildConstants } from "./constants.js";
 
-const mainContent = document.getElementById("content");
+const allContent = document.getElementById("all-content");
+// allContent.textContent = "";
+// allContent.appendChild(buildConstants());
+
+const changingContent = document.getElementById("changing-content");
 const sidebar = document.querySelector(".sidebar");
 
 document.querySelectorAll(".sidebar-toggler").forEach((button) => {
@@ -12,8 +17,8 @@ document.querySelectorAll(".sidebar-toggler").forEach((button) => {
 });
 
 function handleBuildClick(tabChoice) {
-	mainContent.textContent = "";
-	mainContent.appendChild(
+	changingContent.textContent = "";
+	changingContent.appendChild(
 		tabChoice === "home-btn"
 			? buildHome()
 			: tabChoice === "events-btn"
