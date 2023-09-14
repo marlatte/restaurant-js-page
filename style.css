@@ -66,6 +66,16 @@ h1.brand {
 	display: none !important;
 }
 
+.socials {
+	gap: 10px;
+	font-size: 25px;
+}
+
+a.underline {
+	text-decoration: underline 1px;
+	text-underline-offset: 3px;
+}
+
 /* ---------------     /Utilities & Universals     --------------- */
 /* ---------------     CONTENT     --------------- */
 
@@ -164,7 +174,7 @@ header {
 
 /* ---------------     Main     --------------- */
 
-main {
+#changing-content {
 	margin-bottom: calc(var(--footer-height) * 1.3);
 
 	display: flex;
@@ -468,6 +478,14 @@ main {
 		letter-spacing: 1px;
 	}
 
+	& p:nth-last-child(2) {
+		width: min(100%, 440px);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 2px;
+	}
+
 	@media (min-width: 700px) {
 		--art-width: min(300px, 30%);
 
@@ -720,22 +738,17 @@ form [type="submit"] {
 
 footer {
 	position: fixed;
-	height: var(--footer-height);
-	width: 100%;
 	bottom: 0;
+	min-height: var(--footer-height);
+	width: 100%;
+	padding: 10px 20px 15px;
 
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	flex-direction: column-reverse;
+	gap: 10px;
 
-	padding: 10px;
 	box-shadow: 0px 0px 5px var(--accent-main-dark);
 	background-color: var(--bg-main);
-
-	& .contact {
-		display: flex;
-		justify-content: center;
-	}
 
 	& .socials {
 		display: none;
@@ -752,16 +765,29 @@ footer {
 		color: var(--text-strong);
 	}
 
+	& .address {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+
 	@media (min-width: 700px) {
-		& .contact {
-			flex-direction: row;
-			justify-content: space-between;
-		}
+		flex-direction: row;
+		align-items: center;
 
 		& .socials {
-			display: block;
+			display: flex;
+		}
+
+		& .address {
+			align-items: end;
 		}
 	}
+}
+
+.box {
+	flex: 1;
 }
 
 .fa.fa-github {
