@@ -750,6 +750,10 @@ footer {
 	box-shadow: 0px 0px 5px var(--accent-main-dark);
 	background-color: var(--bg-main);
 
+	& > * {
+		flex: 1;
+	}
+
 	& .socials {
 		display: none;
 	}
@@ -784,10 +788,6 @@ footer {
 			align-items: end;
 		}
 	}
-}
-
-.box {
-	flex: 1;
 }
 
 .fa.fa-github {

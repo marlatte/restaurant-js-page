@@ -4,12 +4,13 @@ import { buildEvents, listenForClicks } from "./event.js";
 import { buildConstants } from "./constants.js";
 
 const allContent = document.getElementById("all-content");
-// allContent.textContent = "";
-// allContent.appendChild(buildConstants());
+allContent.textContent = "";
+[...buildConstants()].forEach((section) => allContent.appendChild(section));
 
 const changingContent = document.getElementById("changing-content");
-const sidebar = document.querySelector(".sidebar");
+changingContent.appendChild(buildHome());
 
+const sidebar = document.querySelector(".sidebar");
 document.querySelectorAll(".sidebar-toggler").forEach((button) => {
 	button.addEventListener("click", () => {
 		sidebar.classList.toggle("open");
@@ -38,9 +39,9 @@ document.querySelectorAll(".nav-btn").forEach((button) => {
 });
 
 ////////////// EXPORTS ///////////////
-export const elFactory = (type, attributes, children = []) => {
+export function elFactory(type, attributes, children = []) {
 	return { type, attributes, children };
-};
+}
 
 export function htmlFactory(obj) {
 	const el = document.createElement(obj.type);
