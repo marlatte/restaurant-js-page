@@ -2,6 +2,7 @@ import { buildMenu } from "./menu.js";
 import { buildHome } from "./home.js";
 import { buildEvents, listenForClicks } from "./event.js";
 import { buildConstants } from "./constants.js";
+import "./style.css";
 
 const allContent = document.getElementById("all-content");
 allContent.textContent = "";
