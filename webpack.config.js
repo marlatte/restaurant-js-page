@@ -1,15 +1,15 @@
 const path = require("path");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	mode: "development",
 	entry: "./src/index.js",
-	///////////////// HTMLWebpackPlugin generates an index.html that doesn't have the <head> tags I need
-	// plugins: [
-	// 	new HtmlWebpackPlugin({
-	// 		title: "Output Management",
-	// 	}),
-	// ],
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: "Marlatte Restaurant Page",
+			template: "./src/index.html",
+		}),
+	],
 	output: {
 		filename: "main.js",
 		path: path.resolve(__dirname, "dist"),
