@@ -1,9 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+const devMode = true;
 
 module.exports = {
-	mode: "development",
-	devtool: "source-map",
+	mode: devMode ? "development" : "production",
+	devtool: devMode ? "inline-source-map" : "source-map",
 	entry: "./src/index.js",
 	output: {
 		filename: "main.js",
@@ -12,20 +16,21 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: "Marlatte Restaurant Page",
 			template: "./src/index.html",
 		}),
-	],
+	].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
 	module: {
 		rules: [
 			{
 				test: /\.css$/i,
-				use: ["style-loader", "css-loader"],
-			},
-			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/i,
-				type: "asset/resource",
+				use: [
+					devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+					"css-loader",
+				],
 			},
 		],
+	},
+	optimization: {
+		minimizer: [new CssMinimizerPlugin()],
 	},
 };
