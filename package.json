@@ -1,6 +1,6 @@
 {
 	"name": "restaurant-js-page",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Using webpack to setup and manage workflow, dynamically build a restaurant website with Javascript.",
 	"private": true,
 	"scripts": {
