@@ -3,9 +3,12 @@ import { buildHome } from "./home.js";
 import { buildEvents, listenForClicks } from "./event.js";
 import { buildAboutUs } from "./about-us.js";
 import { buildConstants } from "./constants.js";
-import "./style.css";
 import "./styles/reboot-util.css";
 import "./styles/constants.css";
+import "./styles/home.css";
+import "./styles/menu.css";
+import "./styles/events.css";
+import "./styles/about.css";
 
 const allContent = document.getElementById("all-content");
 allContent.textContent = "";
