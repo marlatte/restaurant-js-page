@@ -24,6 +24,12 @@ document.querySelectorAll(".sidebar-toggler").forEach((button) => {
 	});
 });
 
+document.querySelectorAll(".nav-btn").forEach((button) => {
+	button.addEventListener("click", (e) => {
+		handleBuildClick(e.target.id);
+	});
+});
+
 function handleBuildClick(tabChoice) {
 	changingContent.textContent = "";
 	changingContent.appendChild(
@@ -40,8 +46,6 @@ function handleBuildClick(tabChoice) {
 	}
 }
 
-document.querySelectorAll(".nav-btn").forEach((button) => {
-	button.addEventListener("click", (e) => {
-		handleBuildClick(e.target.id);
-	});
+document.getElementById("contact-btn").addEventListener("click", () => {
+	handleBuildClick("about-btn");
 });

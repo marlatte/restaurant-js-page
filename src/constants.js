@@ -79,6 +79,13 @@ export function buildConstants() {
 			),
 			elFactory("p", { textContent: "Marlatt" }),
 		]),
+		elFactory("div", { classList: "contact-container" }, [
+			elFactory("button", {
+				type: "button",
+				id: "contact-btn",
+				textContent: "Contact Us",
+			}),
+		]),
 	]);
 
 	return [
