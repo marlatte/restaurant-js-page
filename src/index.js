@@ -5,6 +5,7 @@ import { buildAboutUs } from "./about-us.js";
 import { buildConstants } from "./constants.js";
 import "./style.css";
 import "./styles/reboot-util.css";
+import "./styles/constants.css";
 
 const allContent = document.getElementById("all-content");
 allContent.textContent = "";
