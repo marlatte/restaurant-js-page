@@ -1,4 +1,4 @@
-import { elFactory, htmlFactory } from "./index.js";
+import { elFactory, htmlFactory } from "./dom-factories.js";
 
 export function buildMenu() {
 	const dinnerLink =

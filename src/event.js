@@ -1,5 +1,5 @@
 import { createForm } from "./form.js";
-import { htmlFactory, elFactory } from "./index.js";
+import { htmlFactory, elFactory } from "./dom-factories.js";
 
 function createTextChildren() {
 	const textChildren = [

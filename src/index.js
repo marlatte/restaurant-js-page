@@ -1,8 +1,10 @@
 import { buildMenu } from "./menu.js";
 import { buildHome } from "./home.js";
 import { buildEvents, listenForClicks } from "./event.js";
+import { buildAboutUs } from "./about-us.js";
 import { buildConstants } from "./constants.js";
 import "./style.css";
+import "./styles/reboot-util.css";
 
 const allContent = document.getElementById("all-content");
 allContent.textContent = "";
@@ -21,11 +23,12 @@ document.querySelectorAll(".sidebar-toggler").forEach((button) => {
 function handleBuildClick(tabChoice) {
 	changingContent.textContent = "";
 	changingContent.appendChild(
-		tabChoice === "home-btn"
-			? buildHome()
-			: tabChoice === "events-btn"
-			? buildEvents()
-			: buildMenu()
+		{
+			"home-btn": buildHome(),
+			"events-btn": buildEvents(),
+			"menu-btn": buildMenu(),
+			"about-btn": buildAboutUs(),
+		}[tabChoice]
 	);
 	sidebar.classList = "sidebar";
 	if (tabChoice === "events-btn") {
@@ -38,23 +41,3 @@ document.querySelectorAll(".nav-btn").forEach((button) => {
 		handleBuildClick(e.target.id);
 	});
 });
-
-////////////// EXPORTS ///////////////
-export function elFactory(type, attributes, children = []) {
-	return { type, attributes, children };
-}
-
-export function htmlFactory(obj) {
-	const el = document.createElement(obj.type);
-	const attributes = obj.attributes;
-
-	for (let key in attributes) {
-		el[key] = attributes[key];
-	}
-
-	obj.children?.forEach((child) => {
-		el.appendChild(htmlFactory(child));
-	});
-
-	return el;
-}

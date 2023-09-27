@@ -1,35 +1,4 @@
-import { elFactory } from "./index.js";
-
-function formRowFactory(formDataArrays) {
-	return formDataArrays
-		.map((pair) => {
-			const kebab = pair[0].toLowerCase().split(" ").join("-");
-			return elFactory("div", { classList: "form-item" }, [
-				elFactory("label", {
-					htmlFor: kebab,
-					textContent: pair[0] + ":",
-				}),
-				elFactory("input", {
-					id: kebab,
-					type: pair[1],
-					autocomplete: pair[2],
-				}),
-			]);
-		})
-		.reduce((acc, currentItem, index) => {
-			if (!(index & 1)) {
-				// If even, create row with currentItem as a child
-				acc.push(
-					elFactory("div", { classList: "form-row" }, [currentItem])
-				);
-				return acc;
-			} else {
-				// If odd, add currentItem to previous row
-				acc[acc.length - 1].children.push(currentItem);
-				return acc;
-			}
-		}, []);
-}
+import { elFactory, formRowFactory } from "./dom-factories.js";
 
 function createDetailSection() {
 	// First form-item
