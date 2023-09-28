@@ -3,11 +3,11 @@ import { elFactory, htmlFactory } from "./dom-factories";
 export function buildAboutUs() {
 	return htmlFactory(
 		elFactory("div", { classList: "about" }, [
-			elFactory("p", { classList: "text", textContent: "Call us at:" }, [
+			elFactory("p", { classList: "text", textContent: "" }, [
 				elFactory("a", {
 					classList: "underline phone",
 					href: "tel:+1-212-517-1987",
-					textContent: "212 517 1987",
+					textContent: "212-517-1987",
 				}),
 			]),
 			elFactory("div", { classList: "map-container" }, [

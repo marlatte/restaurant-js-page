@@ -3,10 +3,7 @@
 
 	& h2 {
 		color: var(--text-h1);
-	}
-
-	@media (min-width: 700px) {
-		margin-top: 0;
+		text-shadow: 1px 1px #0d0d0d;
 	}
 }
 
@@ -39,6 +36,7 @@
 
 	@media screen and (min-width: 700px) {
 		height: 80%;
+		border-radius: 0 70px;
 
 		background-image: url(https://static.wixstatic.com/media/54a4cd_ae5e22486dbb49debb9cd8ba1b780b6e~mv2.jpg/v1/fill/w_388,h_1240,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Artwork1_Final_8x2_5.jpg);
 	}
@@ -64,12 +62,13 @@
 
 .reservations {
 	color: #ffe5e5;
-	font-size: 20px;
+	font-size: 22px;
+	font-weight: 500;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	text-decoration: underline 1px;
-	text-underline-offset: 2px;
+	text-underline-offset: 4px;
 }
 
 .scroll-down {
