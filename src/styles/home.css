@@ -46,10 +46,10 @@
 
 .hero-text {
 	position: absolute;
-	bottom: 90px;
+	bottom: 100px;
 
 	display: grid;
-	gap: 35px;
+	gap: 30px;
 
 	& h1 {
 		--font-size: min(50vw, 300px);
