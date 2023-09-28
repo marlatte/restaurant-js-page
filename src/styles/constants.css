@@ -1,3 +1,7 @@
+#changing-content {
+	flex: 1;
+}
+
 /* ---------------     Sidebar     --------------- */
 
 .sidebar {
@@ -165,10 +169,6 @@ footer {
 
 		& .socials {
 			display: flex;
-		}
-
-		& .address {
-			align-items: end;
 		}
 	}
 }

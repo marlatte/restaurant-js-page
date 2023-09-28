@@ -15,7 +15,7 @@ allContent.textContent = "";
 [...buildConstants()].forEach((section) => allContent.appendChild(section));
 
 const changingContent = document.getElementById("changing-content");
-changingContent.appendChild(buildHome());
+changingContent.appendChild(buildAboutUs());
 
 const sidebar = document.querySelector(".sidebar");
 document.querySelectorAll(".sidebar-toggler").forEach((button) => {
